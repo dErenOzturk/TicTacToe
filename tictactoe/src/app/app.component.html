@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <div class="row">
+        <div class="col-md-4" *ngFor="let game of games let index=index">
+          <button [class]="checkWinnerButtonClass(index)" (click)="setMark(index)">{{game}}</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="mx-2">
+        <h2 *ngIf="result == ''" class="alert alert-warning" style="text-align: center;">Sıradaki : {{next}} </h2>
+        <h2 *ngIf="result != ''" [class]="checkResultClass()">Sonuç: {{result}}</h2>
+        <div class="alert alert-warning" >
+          <h2 style="text-align: center">SKOR</h2>
+          <div class="row">
+              <h3>X : {{this.score[0].score}}</h3>
+              <h3>O : {{this.score[1].score}}</h3>
+          </div>
+        </div>
+        
+        <div style="margin-top: 415px;">
+          <button class="btn btn-danger w-100" style="height: 80px; font-size: 40px;" (click)="newGame()">Yeni Oyun</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
